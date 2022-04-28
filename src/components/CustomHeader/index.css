@@ -1,0 +1,52 @@
+.ant-layout-header {
+  width: 100%;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  /* box-shadow: rgb(0 0 0 / 10%) 0px 2px 4px 0px; */
+  background: #fff !important;
+  margin-bottom: 1rem;
+  position: sticky;
+  left: 0px;
+  top: 0px;
+  border-bottom: 1px solid #eee;
+}
+
+.header-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  height: 31px;
+}
+
+.logo::before {
+  content: "";
+  height: 31px;
+  flex: 0 0 31px;
+  /* background: url("../../static/logo.svg") no-repeat; */
+}
+
+.logo > span {
+  background: rgba(255, 255, 255, 0.3);
+  font-size: 24px;
+}
+
+.header-left .ant-menu {
+  flex: 1;
+}
+
+.header-left .ant-menu.ant-menu-horizontal > .ant-menu-item::after {
+  left: 0;
+  right: 0;
+}
+
+.header-right .ant-btn + .ant-btn {
+  margin-left: 8px;
+}
