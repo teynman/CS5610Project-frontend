@@ -22,8 +22,8 @@ function App() {
           <CustomHeader></CustomHeader>
         </div>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<HomeScreen/>} />
+          <Route path="/" element={<HomeScreen />} />
+          <Route path="/home" element={<HomeScreen />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/editProfile" element={<EditProfile />} />

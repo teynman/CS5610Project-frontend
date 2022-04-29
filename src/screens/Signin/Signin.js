@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Form, Input, Button, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types';
@@ -6,12 +6,25 @@ import { Link, useNavigate } from 'react-router-dom';
 import style from "./style.module.css";
 import { request } from '../../utils/request';
 import { getUser,saveUser } from '../../utils/storage';
+import {useProfile} from "../../context/profile-context";
 
 export default function LoginForm(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const {signin} = useProfile();
 
+  const handleSignin = async () => {
+    try {
+      await signin(
+          email,
+          password
+      )
+      navigate("/api/profile")
+    } catch (e) {
+      alert('oops')
+    }
+  }
 
   const onFinish = async (values) => {
     console.log('Received values of form: ', values);
@@ -78,6 +91,7 @@ export default function LoginForm(props) {
           <Button
             type="primary"
             htmlType="submit"
+            onClick={handleSignin}
             className="login-form-button"
           >
             Signin
