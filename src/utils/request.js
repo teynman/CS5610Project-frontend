@@ -16,7 +16,7 @@ export  function  request(path, params, method) {
   if (!method || method === 'post' || method === 'put') {
     config.body = JSON.stringify(params);
   }
-  return fetch('http://localhost:4000' + path, config)
+  return fetch('https://cs5610-final-yelp-server.herokuapp.com' + path, config)
     .then(response => response.json()).then(res => {
       const json = res;
       console.log('json===', json)

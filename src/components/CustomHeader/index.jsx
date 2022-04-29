@@ -3,7 +3,7 @@ import { Avatar, Button, Layout, Menu } from 'antd';
 import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
 import { getUser, saveUser,clear } from '../../utils/storage';
-
+import SearchBar from "../SearchBar/search-bar";
 import './index.css';
 import { request } from '../../utils/request';
 
@@ -47,6 +47,9 @@ function CustomHeader(props) {
         <div className="logo">
           <span>Yelp</span>
         </div>
+      </div>
+      <div className="w-75">
+        <SearchBar/>
       </div>
       <div className="header-right">
 
