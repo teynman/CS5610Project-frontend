@@ -36,8 +36,8 @@ const YelpDetails = () => {
     }
     const handlePostReview = async () => {
         if (profile) {
-            await reviewService.postReview(profile._id, profile.email, profile.firstName, profile.lastName, businessId, newRating, newReview, new Date())
-            navigate(`/details/${businessId}`)
+            await reviewService.postReview(profile._id, profile.email, profile.firstName, profile.lastName, businessId, businessDetails.name, newRating, newReview, new Date())
+            window.location.reload(false);
         }
     }
     const searchBusinessById = async () => {

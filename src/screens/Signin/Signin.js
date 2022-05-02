@@ -20,7 +20,7 @@ export default function LoginForm(props) {
           email,
           password
       )
-      navigate("/api/profile")
+      navigate("/profile")
     } catch (e) {
       alert('oops')
     }
