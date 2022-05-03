@@ -7,9 +7,9 @@ import Friends from "../../components/Friends/Friends";
 import Ratings from "../../components/Ratings/Ratings";
 import Bookmarks from "../../components/Bookmarks/Bookmarks";
 import Checkins from "../../components/Checkins/Checkins";
-
 import { request } from '../../utils/request';
 import { getUser } from '../../utils/storage';
+import AllReviews from "../../components/ManageReviews/ManageReviews";
 
 const Profile = (props) => {
   const navigate = useNavigate();
@@ -19,6 +19,8 @@ const Profile = (props) => {
   let userId = useParams().id;
 
   const otherUser = userId && userId !== user._id;
+
+  const ifAdmin = user.admin;
 
   if (!userId) {
     userId = user._id;
@@ -79,13 +81,22 @@ const Profile = (props) => {
     }
   ]);
 
-  if (!otherUser && menus.length == 4) {
+  if (!otherUser && menus.length === 4) {
     menus.splice(2, 0, {
       key: "bookmarks",
       label: "Bookmarks",
       component: <Bookmarks></Bookmarks>
     });
   }
+
+  if (ifAdmin && menus.length === 5) {
+    menus.splice(5, 0, {
+      key: "manageReviews",
+      label: "Manage All Reviews",
+      component: <AllReviews/>
+    });
+  }
+
   const [menuKey, setMenuKey] = useState("recentActivities")
 
   useEffect(() => {
