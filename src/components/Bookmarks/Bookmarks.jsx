@@ -45,7 +45,7 @@ export default function Bookmarks(props) {
 
             </div>
             <div style={{display:"flex",flexDirection:"column"}}>
-              <span style={{color:"#333"}}>{item.name}</span>
+              <Link style={{color:"#333"}} to={"/details/" + item.id}>{item.name}</Link>
               <Rate style={{marginTop:10}} value={item.rating}></Rate>
               <span style={{marginTop:10,color:"#666"}}>phone:{item.phone}</span>
               <span style={{marginTop:10,color:"#666"}}>location:{item.location && item.location.address1}</span>
